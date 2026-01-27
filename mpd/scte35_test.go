@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/Comcast/scte35-go/pkg/scte35"
-	"github.com/zencoder/go-dash/v3/helpers/require"
+	"github.com/brightcove/playback_go-dash/v3/helpers/require"
 )
 
 func TestPeriod_AddNewSCTE35Break(t *testing.T) {

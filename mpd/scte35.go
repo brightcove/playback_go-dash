@@ -5,7 +5,7 @@ import (
 	"sort"
 
 	"github.com/Comcast/scte35-go/pkg/scte35"
-	. "github.com/zencoder/go-dash/v3/helpers/ptrs"
+	. "github.com/brightcove/playback_go-dash/v3/helpers/ptrs"
 )
 
 const (

@@ -1,0 +1,35 @@
+TestOnlyPipeline(
+	agent: [
+		containers: [
+			[name: 'golang', image: 'golang:1.25', ttyEnabled: true, command: 'cat', alwaysPullImage: true]
+		],
+		env       : [
+			'GOPRIVATE': 'github.com/brightcove/*, *.brightcove.com/*',
+		]
+	],
+	test: [
+		stages: [
+			[
+				name : 'Prepare test environment',
+				steps: {
+					container('golang') {
+						withCredentials([
+							string(credentialsId: 'github-public-access-token-bc-svc-cicd', variable: 'GIT_TOKEN')]) {
+							sh 'git config --global url."https://$GIT_TOKEN:x-oauth-basic@github.com/".insteadOf "https://github.com/"'
+							sh 'go mod download'
+						}
+					}
+				}
+			],
+			[
+				name : 'Run Unit Tests',
+				steps: {
+					container('golang') {
+						sh 'make test'
+					}
+				}
+			]
+		]
+	],
+	notifications: [slack: "#bolt-dev"]
+)

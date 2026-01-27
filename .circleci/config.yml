@@ -1,9 +1,0 @@
----
-version: 2
-jobs:
-  build:
-    docker:
-      - image: cimg/go:1.23.4
-    steps:
-      - checkout
-      - run: make test
