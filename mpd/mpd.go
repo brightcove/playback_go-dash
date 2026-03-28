@@ -184,13 +184,13 @@ type AdaptationSet struct {
 	MinHeight          *string           `xml:"minHeight,attr"`
 	MaxHeight          *string           `xml:"maxHeight,attr"`
 	ContentType        *string           `xml:"contentType,attr"`
+	Labels             []string          `xml:"Label,omitempty"`
 	Roles              []*Role           `xml:"Role,omitempty"`
 	SegmentBase        *SegmentBase      `xml:"SegmentBase,omitempty"`
 	SegmentList        *SegmentList      `xml:"SegmentList,omitempty"`
 	SegmentTemplate    *SegmentTemplate  `xml:"SegmentTemplate,omitempty"` // Live Profile Only
 	Representations    []*Representation `xml:"Representation,omitempty"`
 	AccessibilityElems []*Accessibility  `xml:"Accessibility,omitempty"`
-	Labels             []string          `xml:"Label,omitempty"`
 	BaseURL            []string          `xml:"BaseURL,omitempty"`
 }
 
