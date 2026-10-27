@@ -1,7 +1,7 @@
 TestOnlyPipeline(
 	agent: [
 		containers: [
-			[name: 'golang', image: 'golang:1.25', ttyEnabled: true, command: 'cat', alwaysPullImage: true]
+			[name: 'golang', image: 'golang:1.26', ttyEnabled: true, command: 'cat', alwaysPullImage: true]
 		],
 		env       : [
 			'GOPRIVATE': 'github.com/brightcove/*, *.brightcove.com/*',

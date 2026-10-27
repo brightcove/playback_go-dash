@@ -1,8 +1,6 @@
 module github.com/brightcove/playback_go-dash/v3
 
-go 1.23
-
-toolchain go1.23.2
+go 1.26.10
 
 require github.com/Comcast/scte35-go v1.4.6
 

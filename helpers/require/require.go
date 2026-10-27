@@ -9,7 +9,7 @@ func NoError(t *testing.T, err error, msgs ...string) {
 	if err != nil {
 		t.Errorf("Expected no error, but got: %s", err)
 		for _, msg := range msgs {
-			t.Errorf("\n" + msg)
+			t.Errorf("\n%s", msg)
 		}
 		t.FailNow()
 	}
@@ -19,7 +19,7 @@ func NotNil(t *testing.T, object interface{}, msgs ...string) {
 	if isNil(object) {
 		t.Errorf("Expected nil, but got an object")
 		for _, msg := range msgs {
-			t.Errorf("\n" + msg)
+			t.Errorf("\n%s", msg)
 		}
 		t.FailNow()
 	}
@@ -29,7 +29,7 @@ func Nil(t *testing.T, object interface{}, msgs ...string) {
 	if !isNil(object) {
 		t.Errorf("Expected an object, but got nil")
 		for _, msg := range msgs {
-			t.Errorf("\n" + msg)
+			t.Errorf("\n%s", msg)
 		}
 		t.FailNow()
 	}
@@ -53,7 +53,7 @@ func EqualError(t *testing.T, theError error, errString string, msgs ...string) 
 	if theError == nil {
 		t.Errorf("Expected an error but got nil")
 		for _, msg := range msgs {
-			t.Errorf("\n" + msg)
+			t.Errorf("\n%s", msg)
 		}
 		t.FailNow()
 		return
@@ -62,7 +62,7 @@ func EqualError(t *testing.T, theError error, errString string, msgs ...string) 
 	if theError.Error() != errString {
 		t.Errorf("Expected an error with message:\n%qbut got \n%q", errString, theError)
 		for _, msg := range msgs {
-			t.Errorf("\n" + msg)
+			t.Errorf("\n%s", msg)
 		}
 		t.FailNow()
 	}
@@ -72,7 +72,7 @@ func EqualFloat64(t *testing.T, expected, actual float64, msgs ...string) {
 	if expected != actual {
 		t.Errorf("Expected %f but got %f", expected, actual)
 		for _, msg := range msgs {
-			t.Errorf("\n" + msg)
+			t.Errorf("\n%s", msg)
 		}
 		t.FailNow()
 	}
@@ -89,7 +89,7 @@ func EqualStringPtr(t *testing.T, expected, actual *string, msgs ...string) {
 
 	t.Errorf("Expected %v but got %v", expected, actual)
 	for _, msg := range msgs {
-		t.Errorf("\n" + msg)
+		t.Errorf("\n%s", msg)
 	}
 	t.FailNow()
 }
@@ -98,7 +98,7 @@ func EqualString(t *testing.T, expected, actual string, msgs ...string) {
 	if expected != actual {
 		t.Errorf("Expected %s but got %s", expected, actual)
 		for _, msg := range msgs {
-			t.Errorf("\n" + msg)
+			t.Errorf("\n%s", msg)
 		}
 		t.FailNow()
 	}
@@ -108,7 +108,7 @@ func EqualStringSlice(t *testing.T, expected, actual []string, msgs ...string) {
 	if len(expected) != len(actual) {
 		t.Errorf("Expected %v but got %v", expected, actual)
 		for _, msg := range msgs {
-			t.Errorf("\n" + msg)
+			t.Errorf("\n%s", msg)
 		}
 		t.FailNow()
 	}
@@ -122,7 +122,7 @@ func EqualUInt32(t *testing.T, expected, actual uint32, msgs ...string) {
 	if expected != actual {
 		t.Errorf("Expected %d but got %d", expected, actual)
 		for _, msg := range msgs {
-			t.Errorf("\n" + msg)
+			t.Errorf("\n%s", msg)
 		}
 		t.FailNow()
 	}
@@ -139,7 +139,7 @@ func EqualUInt64Ptr(t *testing.T, expected, actual *uint64, msgs ...string) {
 
 	t.Errorf("Expected %v but got %v", expected, actual)
 	for _, msg := range msgs {
-		t.Errorf("\n" + msg)
+		t.Errorf("\n%s", msg)
 	}
 	t.FailNow()
 }
@@ -148,7 +148,7 @@ func EqualUInt64(t *testing.T, expected, actual uint64, msgs ...string) {
 	if expected != actual {
 		t.Errorf("Expected %d but got %d", expected, actual)
 		for _, msg := range msgs {
-			t.Errorf("\n" + msg)
+			t.Errorf("\n%s", msg)
 		}
 		t.FailNow()
 	}
@@ -165,7 +165,7 @@ func EqualIntPtr(t *testing.T, expected, actual *int, msgs ...string) {
 
 	t.Errorf("Expected %v but got %v", expected, actual)
 	for _, msg := range msgs {
-		t.Errorf("\n" + msg)
+		t.Errorf("\n%s", msg)
 	}
 	t.FailNow()
 }
@@ -174,7 +174,7 @@ func EqualInt(t *testing.T, expected, actual int, msgs ...string) {
 	if expected != actual {
 		t.Errorf("Expected %d but got %d", expected, actual)
 		for _, msg := range msgs {
-			t.Errorf("\n" + msg)
+			t.Errorf("\n%s", msg)
 		}
 		t.FailNow()
 	}
@@ -184,7 +184,7 @@ func EqualErr(t *testing.T, expected, actual error, msgs ...string) {
 	if expected != actual {
 		t.Errorf("Expected %s but got %s", expected, actual)
 		for _, msg := range msgs {
-			t.Errorf("\n" + msg)
+			t.Errorf("\n%s", msg)
 		}
 		t.FailNow()
 	}
@@ -196,7 +196,7 @@ func Implements(t *testing.T, interfaceObject interface{}, object interface{}, m
 	if !reflect.TypeOf(object).Implements(interfaceType) {
 		t.Errorf("Expected %T but got %v", object, interfaceType)
 		for _, msg := range msgs {
-			t.Errorf("\n" + msg)
+			t.Errorf("\n%s", msg)
 		}
 		t.FailNow()
 	}
