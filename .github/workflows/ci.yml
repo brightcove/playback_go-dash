@@ -1,19 +1,5 @@
 name: ci
 
-# Port of .ci/Jenkinsfile (Jenkins TestOnlyPipeline job playback/go-dash/test-only).
-# Same stages, same commands, same order: go mod download, then make test.
-#
-# Jenkins is untouched and keeps running until the owner retires the job.
-#
-# This repository is PUBLIC, so it cannot reference the private
-# brightcove/cd_workflows go-setup action the private playback libraries use
-# (GitHub resolves actions at parse time and reports "not found"). It does not
-# need it: every dependency here is public, so plain setup-go covers the
-# "prepare the module access" stage without an App token.
-#
-# There is deliberately no scanner job: the org-level Wiz GitHub App already runs
-# IaC, SAST, secret and vulnerability scans on every PR here.
-
 on:
   pull_request:
   push:
